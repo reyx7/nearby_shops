@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['*']
 
 
 # Application definition
+AUTH_USER_MODEL = 'user.User'
 
 INSTALLED_APPS = [
     'django.contrib.auth',
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'webpack_loader',
     'graphene_django',
+    'backend.user'
 ]
 
 MIDDLEWARE = [
