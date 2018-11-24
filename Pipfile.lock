@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "5b70ef24360732983b516bedad09e144c2cfaf26d9341f46c4bc1f3dd2f1e06e"
+            "sha256": "39b0a8ee62e431e3acc6e6736e34559c0f9a8598cd2bf2bbdecbee26e22affe2"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -30,6 +30,14 @@
             ],
             "index": "pypi",
             "version": "==2.1.3"
+        },
+        "django-graphql-jwt": {
+            "hashes": [
+                "sha256:d18085c6bb7bf20701a0cc6ee556436d9558c929aabdcecace52252a43408ab7",
+                "sha256:da4c4c4a7c7c75f6c7ed117589076e430614248f155cfe343561fe6bcd10e574"
+            ],
+            "index": "pypi",
+            "version": "==0.2.0"
         },
         "django-webpack-loader": {
             "hashes": [
@@ -81,6 +89,13 @@
                 "sha256:348f5f6c3edd4fd47c9cd65aed03ac1b31136d375aa63871a57d3e444c85655c"
             ],
             "version": "==2.2.1"
+        },
+        "pyjwt": {
+            "hashes": [
+                "sha256:30b1380ff43b55441283cc2b2676b755cca45693ae3097325dea01f3d110628c",
+                "sha256:4ee413b357d53fd3fb44704577afac88e72e878716116270d722723d65b42176"
+            ],
+            "version": "==1.6.4"
         },
         "pytz": {
             "hashes": [
