@@ -1,5 +1,13 @@
-# forntend part
-FROM node:alpine AS forntend
+# Dockerfile to build a production image for the project the
+# Dockerfile is splited into two chanks one for frontend end
+# the other for backend the reason for that is that we want
+# to only use the build version of the react.js app and not
+# to install all node tools in the Django production image.
+
+
+FROM node:alpine AS frontend
+
+LABEL Maintainer="soufiane nassih <soufiane.nass7@gmail.com>"
 
 WORKDIR /code
 
@@ -15,7 +23,8 @@ RUN yarn build
 
 CMD ["yarn", "start"]
 
-# backend part
+
+# backend part, install dep end run app
 FROM alpine:latest AS backend
 
 WORKDIR /code
@@ -35,12 +44,19 @@ RUN pipenv install --system --pre
 # copy all source code of the project
 COPY . .
 
-COPY --from=forntend /code/build ./static
+COPY --from=frontend /code/build ./build
 
-# port end execution configuration
+COPY --from=frontend /code/webpack-stats.prod.json .
+
+RUN python3 manage.py migrate
+
+RUN python3 manage.py collectstatic --no-input
+
+RUN rm -r build
+
 EXPOSE 8000
 
 
-CMD ["runserver", "0.0.0.0:8000"]
+CMD ["backend.config.wsgi"]
 
-ENTRYPOINT ["python3", "manage.py"]
+ENTRYPOINT ["gunicorn", "-b", "0.0.0.0:8000"]
