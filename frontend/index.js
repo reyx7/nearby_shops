@@ -4,6 +4,7 @@ import App from "./App";
 import Client from "./api/Client";
 import { ApolloProvider } from "react-apollo";
 import * as serviceWorker from "./serviceWorker";
+import "typeface-roboto";
 
 const Root = props => {
 	return (
