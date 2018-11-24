@@ -30,3 +30,5 @@ yarn-error.log*
 config/webpack-stats.json
 
 webpack-stats.json
+
+.vscode/**
