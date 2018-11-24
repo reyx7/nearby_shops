@@ -1,6 +1,7 @@
 import { ApolloClient } from "apollo-client";
 import { HttpLink } from "apollo-link-http";
 import { ApolloLink, concat } from "apollo-link";
+import { InMemoryCache } from "apollo-cache-inmemory";
 
 const httpLink = new HttpLink({ uri: "/graphql" });
 
@@ -16,5 +17,6 @@ const authMiddleware = new ApolloLink((operation, forward) => {
 });
 
 export default new ApolloClient({
-	link: concat(authMiddleware, httpLink)
+	link: concat(authMiddleware, httpLink),
+	cache: new InMemoryCache()
 });

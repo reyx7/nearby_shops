@@ -8,7 +8,7 @@ import * as serviceWorker from "./serviceWorker";
 const Root = props => {
 	return (
 		<ApolloProvider client={Client}>
-			<App />>
+			<App />
 		</ApolloProvider>
 	);
 };
