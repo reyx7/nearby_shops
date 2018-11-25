@@ -1,9 +1,10 @@
 import graphene
 import graphql_jwt
 from backend.user.apps import AppUserQuery
+from backend.shop.apps import AppShopQuery
 
 
-class Query(AppUserQuery, graphene.ObjectType):
+class Query(AppUserQuery, AppShopQuery, graphene.ObjectType):
     pass
 
 
