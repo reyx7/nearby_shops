@@ -1,15 +1,13 @@
+"""
+    TODO doc for the file
+"""
 from django.db import models
 from django.contrib.auth import get_user_model
-from django.contrib.contenttypes.fields import GenericForeignKey
-from django.contrib.contenttypes.models import ContentType
-from django.contrib.contenttypes.fields import GenericRelation
-
-# Create your models here.
 
 
 class Point(models.Model):
     """
-        class Model for geolocalization point
+        TODO doc
     """
     lat = models.FloatField(null=True)
 
@@ -18,7 +16,7 @@ class Point(models.Model):
 
 class Shop(models.Model):
     """
-        Class model for shop
+        TODO doc
     """
     name = models.CharField(max_length=250)
 
@@ -36,6 +34,9 @@ class Shop(models.Model):
 
 
 class Like(models.Model):
+    """
+        TODO doc
+    """
 
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -47,6 +48,9 @@ class Like(models.Model):
 
 
 class Dislike(models.Model):
+    """
+        TODO doc
+    """
 
     created_at = models.DateTimeField(auto_now_add=True)
 

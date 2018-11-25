@@ -1,20 +1,26 @@
-import graphene
-import graphql_jwt
-from backend.user.apps import AppUserQuery
-from backend.shop.apps import AppShopQuery
+"""
+    TODO doc
+"""
+from graphene import ObjectType, Schema
+from graphql_jwt import ObtainJSONWebToken, Verify
+from backend.user.apps import *
+from backend.shop.apps import *
 
 
-class Query(AppUserQuery, AppShopQuery, graphene.ObjectType):
+class Query(AppUserQuery, AppShopQuery, ObjectType):
+    """
+        TODO doc
+    """
     pass
 
 
-class Mutation(graphene.ObjectType):
+class Mutation(AppShopMutation, ObjectType):
     """
-        Base Mutation class
+        TODO doc
     """
-    token_auth = graphql_jwt.ObtainJSONWebToken.Field()
-    verify_token = graphql_jwt.Verify.Field()
-    refresh_token = graphql_jwt.Refresh.Field()
+    authenticate = ObtainJSONWebToken.Field()
+
+    verify_token = Verify.Field()
 
 
-schema = graphene.Schema(mutation=Mutation, query=Query)
+schema = Schema(mutation=Mutation, query=Query)
