@@ -1,12 +1,10 @@
 import graphene
 import graphql_jwt
+from backend.user.apps import AppUserQuery
 
 
-class Query(graphene.ObjectType):
-    hello = graphene.String(argument=graphene.String(default_value="stranger"))
-
-    def resolve_hello(self, info, argument):
-        return 'Hello ' + argument
+class Query(AppUserQuery, graphene.ObjectType):
+    pass
 
 
 class Mutation(graphene.ObjectType):
