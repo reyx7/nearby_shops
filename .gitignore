@@ -25,10 +25,9 @@ yarn-error.log*
 .venv/**
 *.db
 **/__pycache__/**
-*.sqlite3
+# *.sqlite3
 
 config/webpack-stats.json
-
 webpack-stats.json
 
 .vscode/**
