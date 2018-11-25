@@ -16,37 +16,6 @@ class Point(models.Model):
     let = models.FloatField(null=True)
 
 
-class Action(models.Model):
-    """
-        Abstract class Action
-    """
-    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
-
-    object_id = models.PositiveIntegerField()
-
-    content_object = GenericForeignKey('content_type', 'object_id')
-
-    user = models.ForeignKey(to=get_user_model(), on_delete=models.CASCADE)
-
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        """
-            Meta class
-        """
-        abstract = True
-
-        unique_together = (('user', 'content_type', 'object_id'))
-
-
-class Like(Action):
-    pass
-
-
-class Dislike(Action):
-    pass
-
-
 class Shop(models.Model):
     """
         Class model for shop
@@ -59,6 +28,30 @@ class Shop(models.Model):
 
     point = models.OneToOneField(to=Point, on_delete=models.Case)
 
-    likes = GenericRelation(Like)
+    liked = models.ManyToManyField(
+        get_user_model(), through='Like', related_name='favorite_shops')
 
-    dislikes = GenericRelation(Dislike)
+    disliked = models.ManyToManyField(
+        get_user_model(), through='Dislike', related_name='+')
+
+
+class Like(models.Model):
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    user = models.ForeignKey(
+        get_user_model(), on_delete=models.CASCADE, related_name='like')
+
+    shop = models.ForeignKey(
+        Shop, on_delete=models.CASCADE, related_name='like')
+
+
+class Dislike(models.Model):
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    user = models.ForeignKey(
+        get_user_model(), on_delete=models.CASCADE, related_name='dislike')
+
+    shop = models.ForeignKey(
+        Shop, on_delete=models.CASCADE, related_name='dislike')
