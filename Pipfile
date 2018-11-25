@@ -6,7 +6,6 @@ verify_ssl = true
 [dev-packages]
 pylint = "*"
 autopep8 = "*"
-django-cors-headers = "*"
 
 [packages]
 django = "*"
@@ -15,6 +14,7 @@ whitenoise = "*"
 gunicorn = "*"
 graphene-django = "*"
 django-graphql-jwt = "*"
+django-cors-headers = "*"
 
 [requires]
 python_version = "3.6"
