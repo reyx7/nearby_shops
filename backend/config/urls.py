@@ -16,8 +16,12 @@ Including another URLconf
 
 from django.urls import re_path
 from django.views.generic import TemplateView
+from graphene_django.views import GraphQLView
+from django.views.decorators.csrf import csrf_exempt
+
 
 # serve app in url/app/
 urlpatterns = [
-    re_path(r'^app/', TemplateView.as_view(template_name='index.html')),
+    re_path(r'^graphql', csrf_exempt(GraphQLView.as_view(graphiql=False))),
+    re_path(r'', TemplateView.as_view(template_name='index.html')),
 ]
