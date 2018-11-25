@@ -4,12 +4,15 @@ import App from "./App";
 import Client from "./api/Client";
 import { ApolloProvider } from "react-apollo";
 import * as serviceWorker from "./serviceWorker";
+import { BrowserRouter as Router } from "react-router-dom";
 import "typeface-roboto";
 
 const Root = props => {
 	return (
 		<ApolloProvider client={Client}>
-			<App />
+			<Router>
+				<App />
+			</Router>
 		</ApolloProvider>
 	);
 };
