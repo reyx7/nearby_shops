@@ -75,6 +75,7 @@ const LoginForm = ({
 							value={password}
 							className={classes.textField}
 							margin="normal"
+							type="password"
 							variant="outlined"
 							fullWidth
 						/>

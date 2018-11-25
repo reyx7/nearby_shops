@@ -15,10 +15,10 @@ const styles = {
 	}
 };
 
-const Navbar = ({ classes, auth, handleLogout, title }) => (
-	<AppBar className={!auth ? classes.navbar : null} position="static">
+const Navbar = ({ classes, expend, handleLogout, title }) => (
+	<AppBar className={expend ? classes.navbar : null} position="static">
 		<Toolbar>
-			{auth && (
+			{!expend && (
 				<Typography
 					variant="h5"
 					color="inherit"
@@ -27,7 +27,7 @@ const Navbar = ({ classes, auth, handleLogout, title }) => (
 					{title}
 				</Typography>
 			)}
-			{auth && (
+			{!expend && (
 				<div>
 					<Button color="inherit" onClick={handleLogout}>
 						Logout
@@ -40,7 +40,7 @@ const Navbar = ({ classes, auth, handleLogout, title }) => (
 
 Navbar.propTypes = {
 	classes: PropTypes.object.isRequired,
-	auth: PropTypes.bool.isRequired,
+	expend: PropTypes.bool.isRequired,
 	handleLogout: PropTypes.func.isRequired,
 	title: PropTypes.string.isRequired
 };
