@@ -3,6 +3,9 @@
 """
 from django.db import models
 from django.contrib.auth import get_user_model
+from math import sqrt
+from django.utils.timezone import now
+from datetime import timedelta
 
 
 class Point(models.Model):
@@ -33,14 +36,18 @@ class Shop(models.Model):
         get_user_model(), through='Dislike', related_name='+')
 
     @classmethod
-    def get_sorted_by_distance(cls, point):
+    def get_sorted_by_distance(cls, user):
         """
-            # TODO
-            Class method for Shop model return multiple
-            shops sorted buy nearby distance bitwin the
-            point param and shops point location.
+            #TODO
+            sorted shops buy nearby distance bitwin the
+            point of user and shops point location.
         """
-        return cls.objects.all()
+        return Shop.objects.exclude(
+            # exclude shops that user already like.
+            like__user=user,
+            # exclude shops that the user dislike in last 2 hours
+            dislike__created_at__gt=now() - timedelta(hours=2)
+        )
 
 
 class Like(models.Model):
