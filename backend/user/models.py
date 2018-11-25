@@ -1,6 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser, UserManager
-from backend.shop.models import Point
+from django.contrib.auth.models import UserManager, AbstractUser
 
 # Create your models here.
 
@@ -19,6 +18,8 @@ class User(AbstractUser):
 
     objects = UserManager()
 
-    REQUIRED_FIELDS = ['username']
+    lat = models.FloatField(null=True)
 
-    point = models.OneToOneField(to=Point, on_delete=models.Case)
+    let = models.FloatField(null=True)
+
+    REQUIRED_FIELDS = ['username']

@@ -32,6 +32,16 @@ class Shop(models.Model):
     disliked = models.ManyToManyField(
         get_user_model(), through='Dislike', related_name='+')
 
+    @classmethod
+    def get_sorted_by_distance(cls, point):
+        """
+            # TODO
+            Class method for Shop model return multiple
+            shops sorted buy nearby distance bitwin the
+            point param and shops point location.
+        """
+        return cls.objects.all()
+
 
 class Like(models.Model):
     """

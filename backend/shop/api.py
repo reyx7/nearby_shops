@@ -1,4 +1,5 @@
 from graphene_django import DjangoObjectType
+from graphql_jwt.decorators import login_required
 import graphene
 from .models import *
 
@@ -55,6 +56,7 @@ class LikeShop(graphene.Mutation):
         """
         pk = graphene.ID()
 
+    @login_required
     def mutate(self, info, pk):
 
         shop = Shop.objects.get(pk=pk)
@@ -75,6 +77,7 @@ class DislikeShop(graphene.Mutation):
         """
         pk = graphene.ID()
 
+    @login_required
     def mutate(self, info, pk):
 
         shop = Shop.objects.get(pk=pk)
@@ -95,6 +98,7 @@ class RemoveShop(graphene.Mutation):
         """
         pk = graphene.ID()
 
+    @login_required
     def mutate(self, info, pk):
         """
             remove shop with primary key pk from favorite
@@ -118,14 +122,20 @@ class ShopQuery(graphene.ObjectType):
 
     preferred_shops = graphene.List(ShopType)
 
+    @login_required
     def resolve_nearby_shops(self, info):
         """
-            #TODO
             Return all nearby shop for given user in the session
             context.
         """
-        return info.context.user.favorite_shops.all()
+        return Shop.get_sorted_by_distance(
+            Point(
+                info.context.user.lat,
+                info.context.user.let
+            )
+        )
 
+    @login_required
     def resolve_preferred_shops(self, info):
         """
             Return all preferred shops for given user in the session
