@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'backend.user',
     'backend.shop',
     'corsheaders',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
