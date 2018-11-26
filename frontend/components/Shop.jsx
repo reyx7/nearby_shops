@@ -43,6 +43,7 @@ const Shop = ({
 							<Button
 								variant="outlined"
 								color="primary"
+								onClick={handleLike}
 								fullWidth
 							>
 								<LikeIcon className={classes.extendedIcon} />
@@ -53,6 +54,7 @@ const Shop = ({
 							<Button
 								variant="outlined"
 								color="secondary"
+								onClick={handleDislike}
 								fullWidth
 							>
 								<DislikeIcon className={classes.extendedIcon} />
@@ -62,7 +64,12 @@ const Shop = ({
 					</Grid>
 				)}
 				{handleRemove && (
-					<Button variant="outlined" color="secondary" fullWidth>
+					<Button
+						variant="outlined"
+						onClick={handleRemove}
+						color="secondary"
+						fullWidth
+					>
 						<RemoveIcon className={classes.extendedIcon} />
 						Remove from favorite
 					</Button>
