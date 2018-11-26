@@ -44,8 +44,10 @@ class Shop(models.Model):
         """
         return Shop.objects.exclude(
             # exclude shops that user already like.
-            like__user=user,
+            liked=user
             # exclude shops that the user dislike in last 2 hours
+        ).exclude(
+
             dislike__created_at__gt=now() - timedelta(hours=2)
         )
 

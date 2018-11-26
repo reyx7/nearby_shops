@@ -18,8 +18,8 @@ class User(AbstractUser):
 
     objects = UserManager()
 
-    lat = models.FloatField(null=True)
+    lat = models.FloatField(default=0)
 
-    let = models.FloatField(null=True)
+    let = models.FloatField(default=0)
 
     REQUIRED_FIELDS = ['username']

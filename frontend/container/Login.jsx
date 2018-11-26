@@ -7,7 +7,7 @@ import gql from "graphql-tag";
 
 const GET_TOKEN = gql`
 	mutation tokenAuth($email: String!, $password: String!) {
-		tokenAuth(email: $email, password: $password) {
+		authenticate(email: $email, password: $password) {
 			token
 		}
 	}
@@ -41,7 +41,7 @@ class Login extends React.Component {
 			<Mutation mutation={GET_TOKEN}>
 				{(tokenAuth, { data, error }) => {
 					if (data) {
-						localStorage.setItem("token", data.tokenAuth.token);
+						localStorage.setItem("token", data.authenticate.token);
 						localStorage.setItem("isLogin", true);
 						document.location.reload();
 					}

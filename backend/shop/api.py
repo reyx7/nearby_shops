@@ -128,12 +128,7 @@ class ShopQuery(graphene.ObjectType):
             Return all nearby shop for given user in the session
             context.
         """
-        return Shop.get_sorted_by_distance(
-            Point(
-                info.context.user.lat,
-                info.context.user.let
-            )
-        )
+        return Shop.get_sorted_by_distance(info.context.user)
 
     @login_required
     def resolve_preferred_shops(self, info):
@@ -141,7 +136,7 @@ class ShopQuery(graphene.ObjectType):
             Return all preferred shops for given user in the session
             context.
         """
-        return info.context.user.favorite_shops.all()
+        return info.context.user.favorite_shops.all().distinct()
 
 
 class ShopMutation(graphene.ObjectType):

@@ -10,7 +10,7 @@ class App extends Component {
 				{localStorage.getItem("isLogin") === null &&
 					location.pathname !== "/login" && <Redirect to="/login" />}
 				{location.pathname === "/login" &&
-					localStorage.getItem("isLogin") && <Redirect to="/" />}
+					localStorage.getItem("isLogin") && <Redirect to="/home" />}
 				{routes.map(route => (
 					<Route key={route.path} {...route} />
 				))}
