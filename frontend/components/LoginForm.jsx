@@ -52,7 +52,6 @@ const LoginForm = ({
 					<Grid container justify="center">
 						<TextField
 							error={error}
-							id="outlined-uncontrolled"
 							label="Email"
 							name="email"
 							value={username}
@@ -66,7 +65,6 @@ const LoginForm = ({
 						/>
 						<TextField
 							error={error}
-							id="outlined-uncontrolled"
 							label="Password"
 							name="password"
 							onChange={e => {
