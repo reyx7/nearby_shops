@@ -84,47 +84,49 @@ const Shops = ({ location, match }) => {
 		);
 	if (location.pathname === `${match.url}/nearby_shops`)
 		return (
-			<Query query={GET_NEARBY_SHOPS}>
-				{({ data, loading, error }) => {
-					if (loading) return null;
-					if (error) return null;
-					return (
-						<Mutation mutation={LIKE_SHOP}>
-							{like => (
-								<Mutation mutation={DISLIKE_SHOP}>
-									{dislike =>
-										data.nearbyShops.map(
-											({ id, name, picture }) => (
-												<Shop
-													key={id}
-													name={name}
-													url={picture}
-													handleLike={() => {
-														like({
-															variables: {
-																pk: id
-															}
-														});
-														document.location.reload();
-													}}
-													handleDislike={() => {
-														dislike({
-															variables: {
-																pk: id
-															}
-														});
-														document.location.reload();
-													}}
-												/>
+			<Grid container spacing={16}>
+				<Query query={GET_NEARBY_SHOPS}>
+					{({ data, loading, error }) => {
+						if (loading) return null;
+						if (error) return null;
+						return (
+							<Mutation mutation={LIKE_SHOP}>
+								{like => (
+									<Mutation mutation={DISLIKE_SHOP}>
+										{dislike =>
+											data.nearbyShops.map(
+												({ id, name, picture }) => (
+													<Shop
+														key={id}
+														name={name}
+														url={picture}
+														handleLike={() => {
+															like({
+																variables: {
+																	pk: id
+																}
+															});
+															document.location.reload();
+														}}
+														handleDislike={() => {
+															dislike({
+																variables: {
+																	pk: id
+																}
+															});
+															document.location.reload();
+														}}
+													/>
+												)
 											)
-										)
-									}
-								</Mutation>
-							)}
-						</Mutation>
-					);
-				}}
-			</Query>
+										}
+									</Mutation>
+								)}
+							</Mutation>
+						);
+					}}
+				</Query>
+			</Grid>
 		);
 	return <div />;
 };
