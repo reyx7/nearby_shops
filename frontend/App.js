@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Redirect, withRouter } from "react-router-dom";
+import { Route, Redirect, withRouter, Switch } from "react-router-dom";
 import routes from "./routes";
 
 class App extends Component {
@@ -11,9 +11,11 @@ class App extends Component {
 					location.pathname !== "/login" && <Redirect to="/login" />}
 				{location.pathname === "/login" &&
 					localStorage.getItem("isLogin") && <Redirect to="/home" />}
-				{routes.map(route => (
-					<Route key={route.path} {...route} />
-				))}
+				<Switch>
+					{routes.map(route => (
+						<Route key={route.path} {...route} />
+					))}
+				</Switch>
 			</div>
 		);
 	}

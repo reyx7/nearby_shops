@@ -10,5 +10,9 @@ export default [
 	{
 		path: "/login",
 		component: Auth
+	},
+	{
+		path: "*",
+		component: NotFound
 	}
 ];
