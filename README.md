@@ -28,6 +28,7 @@ nearby_shops requires  [Python3](https://www.python.org/) to run.
 Install the dependencies and start the server For production environments....
 
 ```sh
+$ git clone https://github.com/reyx7/nearby_shops.git
 $ cd nearby_shops
 #Install Paquages and Virtuallan managaer
 $ pip3 install pipenv
@@ -54,6 +55,7 @@ nearby_shops is very easy to install and deploy in a Docker container.
 By default, the Docker will expose port 8080, so change this within the Dockerfile if necessary. When ready, simply use the Dockerfile to build the image.
 
 ```sh
+$ git clone https://github.com/reyx7/nearby_shops.git
 cd nearby_shops
 docker build -t nearby_shops .
 ```
@@ -75,6 +77,8 @@ http://localhost:7000
 #### Building from source
 Build from source requires [node v4+](http://nodejs.org) and [Python3](https://www.python.org/).
 ```sh
+$ git clone https://github.com/reyx7/nearby_shops.git
+$ cd nearby_shops
 # Install paquages for front and back
 $ yarn install
 $ pip3 install pipenv
