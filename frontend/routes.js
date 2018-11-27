@@ -4,12 +4,15 @@ import NotFound from "./views/NotFound";
 
 export default [
 	{
-		path: "/",
-		component: Home,
-		exact: true
+		path: "/home",
+		component: Home
 	},
 	{
 		path: "/login",
 		component: Auth
+	},
+	{
+		path: "*",
+		component: NotFound
 	}
 ];

@@ -1,4 +1,4 @@
-"use strict";
+
 
 const path = require("path");
 const fs = require("fs");
@@ -71,7 +71,7 @@ module.exports = {
 	appPath: resolveApp("."),
 	appBuild: resolveApp("build"),
 	appPublic: resolveApp("public"),
-	appHtml: resolveApp("public/index.html"),
+	appHtml: resolveApp("public/dev.html"),
 	appIndexJs: resolveModule(resolveApp, "frontend/index"),
 	appPackageJson: resolveApp("package.json"),
 	appSrc: resolveApp("frontend"),

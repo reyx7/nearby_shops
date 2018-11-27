@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser, UserManager
+from django.contrib.auth.models import UserManager, AbstractUser
 
 # Create your models here.
 
@@ -17,5 +17,9 @@ class User(AbstractUser):
     USERNAME_FIELD = 'email'
 
     objects = UserManager()
+
+    lat = models.FloatField(default=0)
+
+    let = models.FloatField(default=0)
 
     REQUIRED_FIELDS = ['username']

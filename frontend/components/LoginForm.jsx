@@ -8,6 +8,7 @@ import Grid from "@material-ui/core/Grid";
 import Divider from "@material-ui/core/Divider";
 import Button from "@material-ui/core/Button";
 import indigo from "@material-ui/core/colors/grey";
+import Avatar from "../images/login.png";
 
 const styles = theme => ({
 	root: {
@@ -22,6 +23,11 @@ const styles = theme => ({
 	},
 	title: {
 		flexGrow: 1
+	},
+	avatar: {
+		margin: 7,
+		width: 84,
+		height: 84
 	}
 });
 
@@ -37,6 +43,9 @@ const LoginForm = ({
 		<Grid item md={5} xs={12} sm={9}>
 			<Paper className={classes.root} elevation={1}>
 				<Grid container justify="center">
+					<img src={Avatar} alt="login" className={classes.avatar} />
+				</Grid>
+				<Grid container justify="center">
 					<Typography
 						variant="h2"
 						className={classes.grow}
@@ -45,14 +54,12 @@ const LoginForm = ({
 						Authentication
 					</Typography>
 				</Grid>
-				<Grid container />
+				<br />
+				<Divider />
 				<Grid item xs={12}>
-					<br />
-					<Divider />
 					<Grid container justify="center">
 						<TextField
 							error={error}
-							id="outlined-uncontrolled"
 							label="Email"
 							name="email"
 							value={username}
@@ -66,7 +73,6 @@ const LoginForm = ({
 						/>
 						<TextField
 							error={error}
-							id="outlined-uncontrolled"
 							label="Password"
 							name="password"
 							onChange={e => {

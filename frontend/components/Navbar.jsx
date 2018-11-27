@@ -41,8 +41,7 @@ const Navbar = ({ classes, expend, handleLogout, title }) => (
 Navbar.propTypes = {
 	classes: PropTypes.object.isRequired,
 	expend: PropTypes.bool.isRequired,
-	handleLogout: PropTypes.func.isRequired,
-	title: PropTypes.string.isRequired
+	handleLogout: PropTypes.func.isRequired
 };
 
 export default withStyles(styles)(Navbar);
