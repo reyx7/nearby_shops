@@ -58,7 +58,7 @@ http://localhost:8000
 ### Run in docker
 nearby_shops is very easy to install and deploy in a Docker container.
 
-By default, the Docker will expose port 8080, so change this within the Dockerfile if necessary. When ready, simply use the Dockerfile to build the image.
+By default, the Docker will expose port 8000, so change this within the Dockerfile if necessary. When ready, simply use the Dockerfile to build the image.
 
 ```sh
 $ git clone https://github.com/reyx7/nearby_shops.git
