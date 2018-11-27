@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'webpack_loader',
     'graphene_django',
     'backend.user',
+    'backend.shop',
     'corsheaders',
 ]
 
