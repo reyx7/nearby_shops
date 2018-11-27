@@ -27,24 +27,30 @@ Password: demo
 nearby_shops requires  [Python3](https://www.python.org/) to run.
 Install the dependencies and start the server For production environments....
 
+Clone the prject 
 ```sh
 $ git clone https://github.com/reyx7/nearby_shops.git
 $ cd nearby_shops
-#Install Paquages and Virtuallan managaer
+```
+Install required python packages dependencies, don't worry pipenv will create new Virtual LAN for the project your python environment will be not affected.
+```sh
 $ pip3 install pipenv
-# install Dependencies for production
 $ pipenv install --pre
-# Start the server in Port 8000
+```
+
+Start the server in Port 8000
+```sh
 $ pipenv run gunicorn  -b "0.0.0.0:8000" backend.config.wsgi
 ```
-If you need more workers, add --workers=n options to gunicorn
-```
+
+If you need more workers, add --workers=n options to [gunicorn](https://gunicorn.org/)
+```sh
 $ pipenv run gunicorn  -b "0.0.0.0:8000" --workers=3 backend.config.wsgi
 ```
 
 Verify the server in your preferred browser.
 
-```sh
+```
 http://localhost:8000
 ```
 
@@ -76,19 +82,27 @@ http://localhost:7000
 
 #### Building from source
 Build from source requires [node v4+](http://nodejs.org) and [Python3](https://www.python.org/).
+
+Clone the project and install backend dependences  :
 ```sh
 $ git clone https://github.com/reyx7/nearby_shops.git
 $ cd nearby_shops
-# Install paquages for front and back
-$ yarn install
-$ pip3 install pipenv
-$ pipenv install --pre
-# make migration & collect static file of forntend to django
-$ pipenv ./manage.py migrate
-$ pipenv ./manage.py collectstatic
-# run server
-$ pipenv run gunicorn  -b "0.0.0.0:8000" backend.config.wsgi
 ```
+
+Install and build frontend : 
+```sh
+$ yarn install
+$ yarn build
+```
+Run collect static cmd of django manage script to drive and zip the forntend and media files to public path.
+```sh
+$ pipenv ./manage.py collectstatic
+```
+Run the server in the port 8000
+```sh
+$ pipenv run gunicorn  -b "0.0.0.0:8000" backend.config.wsgi
+``` 
+
 Check the application in your favorite browser:
 ```sh
     http://localhost:8000/
@@ -97,7 +111,7 @@ Check the application in your favorite browser:
 
 ### Frameworks and Tools
 
-nearby_shops is currently using  the following frameworks and tools. Instructions on how to use them in your own application are linked below.
+Nearby_shops is currently using  the following frameworks and tools. Instructions on how to use them in your own application are linked below.
 
 | Tools | README |
 | ------ | ------ |
