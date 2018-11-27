@@ -12,9 +12,9 @@ class Point(models.Model):
     """
         TODO doc
     """
-    lat = models.FloatField(null=True)
+    lat = models.FloatField()
 
-    let = models.FloatField(null=True)
+    let = models.FloatField()
 
 
 class Shop(models.Model):
@@ -40,17 +40,19 @@ class Shop(models.Model):
     @classmethod
     def get_sorted_by_distance(cls, user):
         """
-            #TODO
-            sorted shops buy nearby distance bitwin the
-            point of user and shops point location.
+            Return sorted shops buy nearby distance bitwin
+            the point of user and shops point location.
         """
-        return Shop.objects.exclude(
-            # exclude shops that user already like.
-            liked=user
-            # exclude shops that the user dislike in last 2 hours
-        ).exclude(
-
-            dislike__created_at__gt=now() - timedelta(hours=2)
+        return sorted(
+            Shop.objects.exclude(
+                # exclude shops that user already like.
+                liked=user
+                # exclude shops that the user dislike in last 2 hours
+            ).exclude(
+                dislike__created_at__gt=now() - timedelta(hours=2)
+                # Lambda function for sorting the query set buy distance
+                # Apply the above values in the formula √((x2 - x1)2 + (y2 - y1)2)
+            ), key=lambda shop: sqrt((user.let - user.lat)**2 + (shop.point.let - shop.point.lat)**2)
         )
 
 
