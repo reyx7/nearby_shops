@@ -13,7 +13,7 @@ Simple demo application working with Django & React.js frameworks, including Gra
 
 ### Screenshot
 
-![screanshots](http://image.noelshack.com/fichiers/2018/48/2/1543341234-screenshot-2018-11-27-at-18-06-46.png)
+![screanshots](https://serving.photos.photobox.com/396602456a80a2f49780b498abea7a16186ae3916d9ae049a7a66aa4fd7f3e162819a439.jpg)
 
 ### Credentials for tests
 The source code in branch master contains a mini database in file sqlitle3.db that hold data for the demo, no configuration needed for database.
