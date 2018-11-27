@@ -11,6 +11,8 @@ const GET_FAVORITE_SHOPS = gql`
 			id
 			name
 			picture
+			country
+			city
 		}
 	}
 `;
@@ -21,6 +23,8 @@ const GET_NEARBY_SHOPS = gql`
 			id
 			name
 			picture
+			country
+			city
 		}
 	}
 `;
@@ -58,13 +62,15 @@ const Shops = ({ location, match }) => {
 						if (loading) return null;
 						if (error) return null;
 						return data.preferredShops.map(
-							({ id, name, picture }) => (
+							({ id, name, picture, country, city }) => (
 								<Mutation mutation={REMOVE_SHOP}>
 									{remove => (
 										<Shop
 											key={id}
 											name={name}
 											url={picture}
+											country={country}
+											city={city}
 											handleRemove={() => {
 												remove({
 													variables: {
@@ -95,11 +101,19 @@ const Shops = ({ location, match }) => {
 									<Mutation mutation={DISLIKE_SHOP}>
 										{dislike =>
 											data.nearbyShops.map(
-												({ id, name, picture }) => (
+												({
+													id,
+													name,
+													picture,
+													country,
+													city
+												}) => (
 													<Shop
 														key={id}
 														name={name}
 														url={picture}
+														country={country}
+														city={city}
 														handleLike={() => {
 															like({
 																variables: {

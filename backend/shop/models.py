@@ -25,7 +25,9 @@ class Shop(models.Model):
 
     picture = models.URLField()
 
-    email = models.EmailField(max_length=250)
+    city = models.CharField(max_length=250)
+
+    country = models.CharField(max_length=250)
 
     point = models.OneToOneField(to=Point, on_delete=models.Case)
 

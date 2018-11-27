@@ -17,26 +17,6 @@ import cyan from "@material-ui/core/colors/cyan";
 import deepPurple from "@material-ui/core/colors/deepPurple";
 import grey from "@material-ui/core/colors/grey";
 
-const get_color = () => {
-	let rand = Math.floor(Math.random() * 7);
-	switch (rand) {
-		case 1:
-			return red[500];
-		case 2:
-			return cyan[500];
-		case 3:
-			return deepPurple[500];
-		case 4:
-			return blue[500];
-		case 5:
-			return blue[500];
-		case 6:
-			return grey[500];
-		default:
-			return grey;
-	}
-};
-
 const styles = theme => ({
 	media: {
 		height: 0,
@@ -47,6 +27,9 @@ const styles = theme => ({
 	},
 	extendedIcon: {
 		marginRight: theme.spacing.unit
+	},
+	avatar: {
+		backgroundColor: deepPurple[500]
 	}
 });
 
@@ -55,7 +38,7 @@ const Shop = ({
 	name,
 	url,
 	handleLike,
-	contry,
+	country,
 	city,
 	handleDislike,
 	handleRemove
@@ -64,13 +47,9 @@ const Shop = ({
 		<Card>
 			<CardHeader
 				title={name}
-				subheader={`${contry},${city}`}
+				subheader={`${country}, ${city}`}
 				avatar={
-					<Avatar
-						aria-label="Recipe"
-						className={classes.avatar}
-						style={{ backgroundColor: get_color() }}
-					>
+					<Avatar aria-label="Recipe" className={classes.avatar}>
 						{name[0]}
 					</Avatar>
 				}
