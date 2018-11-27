@@ -15,7 +15,7 @@ const GET_TOKEN = gql`
 
 const styles = {
 	login: {
-		marginTop: -150
+		marginTop: -194
 	}
 };
 
