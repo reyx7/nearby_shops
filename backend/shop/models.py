@@ -52,7 +52,7 @@ class Shop(models.Model):
                 dislike__created_at__gt=now() - timedelta(hours=2)
                 # Lambda function for sorting the query set buy distance
                 # Apply the above values in the formula √((x2 - x1)2 + (y2 - y1)2)
-            ), key=lambda shop: sqrt((user.let - user.lat)**2 + (shop.point.let - shop.point.lat)**2)
+            ), key=lambda shop: sqrt((shop.point.lat - shop.point.let)**2 + (user.lat - user.let)**2)
         )
 
 

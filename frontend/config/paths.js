@@ -1,5 +1,3 @@
-
-
 const path = require("path");
 const fs = require("fs");
 const url = require("url");
@@ -71,7 +69,7 @@ module.exports = {
 	appPath: resolveApp("."),
 	appBuild: resolveApp("build"),
 	appPublic: resolveApp("public"),
-	appHtml: resolveApp("public/dev.html"),
+	appHtml: resolveApp("public/index.html"),
 	appIndexJs: resolveModule(resolveApp, "frontend/index"),
 	appPackageJson: resolveApp("package.json"),
 	appSrc: resolveApp("frontend"),

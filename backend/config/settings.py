@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(BASE_DIR)
 SECRET_KEY = '^l0)kseqhzbvj7pn$p$$#ov$q%@qb&7oc$*ruiimr(z-f*6u8n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 CORS_ORIGIN_ALLOW_ALL = DEBUG
 
@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'backend.user',
     'backend.shop',
     'corsheaders',
-    'django_extensions',
 ]
 
 MIDDLEWARE = [

@@ -3,7 +3,7 @@ import { HttpLink } from "apollo-link-http";
 import { ApolloLink, concat } from "apollo-link";
 import { InMemoryCache } from "apollo-cache-inmemory";
 
-const httpLink = new HttpLink({ uri: "http://localhost:8000/graphql" });
+const httpLink = new HttpLink({ uri: "/graphql" });
 
 const authMiddleware = new ApolloLink((operation, forward) => {
 	// add the authorization to the headers

@@ -48,8 +48,6 @@ COPY --from=frontend /code/build ./build
 
 COPY --from=frontend /code/webpack-stats.prod.json .
 
-RUN python3 manage.py migrate
-
 RUN python3 manage.py collectstatic --no-input
 
 RUN rm -r build
@@ -59,4 +57,4 @@ EXPOSE 8000
 
 CMD ["backend.config.wsgi"]
 
-ENTRYPOINT ["gunicorn", "-b", "0.0.0.0:8000"]
+ENTRYPOINT ["gunicorn", "-b", "0.0.0.0:8000", "--workers", "4"]
