@@ -10,6 +10,32 @@ import RemoveIcon from "@material-ui/icons/Delete";
 import DislikeIcon from "@material-ui/icons/ThumbDownAlt";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
+import Avatar from "@material-ui/core/Avatar";
+import red from "@material-ui/core/colors/red";
+import blue from "@material-ui/core/colors/blue";
+import cyan from "@material-ui/core/colors/cyan";
+import deepPurple from "@material-ui/core/colors/deepPurple";
+import grey from "@material-ui/core/colors/grey";
+
+const get_color = () => {
+	let rand = Math.floor(Math.random() * 7);
+	switch (rand) {
+		case 1:
+			return red[500];
+		case 2:
+			return cyan[500];
+		case 3:
+			return deepPurple[500];
+		case 4:
+			return blue[500];
+		case 5:
+			return blue[500];
+		case 6:
+			return grey[500];
+		default:
+			return grey;
+	}
+};
 
 const styles = theme => ({
 	media: {
@@ -29,12 +55,26 @@ const Shop = ({
 	name,
 	url,
 	handleLike,
+	contry,
+	city,
 	handleDislike,
 	handleRemove
 }) => (
 	<Grid item xs={12} sm={6} md={3} lg={3}>
 		<Card>
-			<CardHeader title={name} />
+			<CardHeader
+				title={name}
+				subheader={`${contry},${city}`}
+				avatar={
+					<Avatar
+						aria-label="Recipe"
+						className={classes.avatar}
+						style={{ backgroundColor: get_color() }}
+					>
+						{name[0]}
+					</Avatar>
+				}
+			/>
 			<CardMedia className={classes.media} image={url} title={name} />
 			<CardActions className={classes.actions}>
 				{!handleRemove && (
@@ -82,6 +122,8 @@ const Shop = ({
 Shop.propTypes = {
 	classes: PropTypes.object.isRequired,
 	name: PropTypes.string.isRequired,
+	country: PropTypes.string.isRequired,
+	city: PropTypes.string.isRequired,
 	url: PropTypes.string.isRequired,
 	handleLike: PropTypes.func.isRequired,
 	handleDislike: PropTypes.func.isRequired
