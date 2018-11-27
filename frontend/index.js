@@ -6,14 +6,24 @@ import { ApolloProvider } from "react-apollo";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter as Router } from "react-router-dom";
 import "typeface-roboto";
+import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
+import blue from "@material-ui/core/colors/blue";
+
+const theme = createMuiTheme({
+	palette: {
+		primary: blue
+	}
+});
 
 const Root = props => {
 	return (
-		<ApolloProvider client={Client}>
-			<Router>
-				<App />
-			</Router>
-		</ApolloProvider>
+		<MuiThemeProvider theme={theme}>
+			<ApolloProvider client={Client}>
+				<Router>
+					<App />
+				</Router>
+			</ApolloProvider>
+		</MuiThemeProvider>
 	);
 };
 

@@ -11,11 +11,7 @@ import DislikeIcon from "@material-ui/icons/ThumbDownAlt";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import Avatar from "@material-ui/core/Avatar";
-import red from "@material-ui/core/colors/red";
-import blue from "@material-ui/core/colors/blue";
-import cyan from "@material-ui/core/colors/cyan";
 import deepPurple from "@material-ui/core/colors/deepPurple";
-import grey from "@material-ui/core/colors/grey";
 
 const styles = theme => ({
 	media: {
