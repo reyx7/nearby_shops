@@ -2,15 +2,6 @@
 
 Simple demo application working with Django & React.js frameworks, including GraphQL query language. ❄️
 
-## Functional spec
- - [X] As a User, I can sign up using my email & password
- - [X] As a User, I can sign in using my email & password
- - [X] As a User, I can display the list of shops sorted by distance
- - [X] As a User, I can like a shop, so it can be added to my preferred shops Acceptance criteria: liked shops shouldn’t be displayed on the main page
-- [X] [BONUS] As a User, I can dislike a shop, so it won’t be displayed within “Nearby Shops” list during the next 2 hours
-- [X] [BONUS] As a User, I can display the list of preferred shops
-- [X] [BONUS] As a User, I can remove a shop from my preferred shops list
-
 ### Screenshot
 
 ![screanshots](https://serving.photos.photobox.com/396602456a80a2f49780b498abea7a16186ae3916d9ae049a7a66aa4fd7f3e162819a439.jpg)
